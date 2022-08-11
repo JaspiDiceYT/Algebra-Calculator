@@ -2,29 +2,35 @@
 {
     public class App
     {
-        public bool Runstartsleep;
+        public const bool Runstartsleep = true;
+        public static int CountVisited = 0;
 
-        public void Menu()
+        public static void Menu()
         {
+            CountVisited++;
             Console.Clear();
             Console.Title = "Algebra Calculator - By Jaspin";
 
-            if (Runstartsleep)
+            if (CountVisited == 0)
             {
-                Console.WriteLine("Welcome to Jaspin's Algebra Calculator!");
-                Console.WriteLine("This is a project because i recently have gotten into Algebra 1 honors, so I'm using coding to help (:");
-                Console.WriteLine("Press any key to continue!");
-                Console.ReadKey();
+                if (Runstartsleep)
+                {
+                    Console.WriteLine("Welcome to Jaspin's Algebra Calculator!");
+                    Console.WriteLine("This is a project because i recently have gotten into Algebra 1 honors, so I'm using coding to help (:");
+                    Console.WriteLine("Press any key to continue!");
+                    Console.ReadKey();
+                }
             }
 
             Console.Clear();
             Console.WriteLine("What would you like to do? \n");
             Console.WriteLine("1 - Basic Operations");
             Console.WriteLine("2 - Special Calculations");
+            Console.WriteLine("3 - Probability");
 
             string? option = Console.ReadLine();
 
-            switch (option.ToString())
+            switch (option?.ToString())
             {
                 // Go to Basic Operations Function Menu
                 case "1":
@@ -32,6 +38,9 @@
                     break;
                 case "2":
                     SpecialOperations.Select();
+                    break;
+                case "3":
+                    Probability.Select();
                     break;
                 default:
                     Console.WriteLine("Invalid selection!");
@@ -41,9 +50,9 @@
             }
         }
 
-        public App(bool runstartsleep)
+        public App()
         {
-            Runstartsleep = runstartsleep;
+            
         }
     }
 }

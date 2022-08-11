@@ -54,7 +54,7 @@
             Console.WriteLine("Number 2: ");
             Number2 = Convert.ToInt32(Console.ReadLine());
 
-            switch (selection.ToString())
+            switch (selection?.ToString())
             {
                 case "1":
                     Console.WriteLine("Result: ");
@@ -83,7 +83,7 @@
             }
             Console.WriteLine("Press any key to return to menu!");
             Console.ReadKey();
-            Program.Main();
+            App.Menu();
         }
     }
 }

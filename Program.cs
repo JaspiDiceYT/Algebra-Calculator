@@ -4,9 +4,7 @@
     {
         public static void Main()
         {
-            bool playintro = true;
-            App app = new App(playintro);
-            app.Menu();
+            App.Menu();
         }
     }
 }
